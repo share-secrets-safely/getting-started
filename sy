@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+set -eu
+
+root="$(cd "${0%/*}" && pwd)"
+exe="$root/bin/$(uname -s)/${0##*/}"
+
+# shellcheck disable=1090
+. "$root/.lib.sh"
+assure_exists "$exe"
+
+$exe "$@"
